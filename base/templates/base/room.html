@@ -23,7 +23,7 @@
                                     <a href="{% url 'delete-message' message.id %}">Delete</a>
                                     <br>                              
                                 {% endif %}
-                                <small>@{{ message.user }}  ---  {{ message.created|timesince }} ago</small>
+                                <small> <a href="{% url 'user-profile' message.user.id %}">@{{ message.user }}</a>  ---  {{ message.created|timesince }} ago</small>
                                 <p>{{ message.body }}</p>
                                 <hr>
                             </div>
@@ -46,7 +46,7 @@
                 <hr>
                 {% for user in participants %}
                 <div>
-                    <a href="#">@{{ user.username }}</a>
+                    <a href="{% url 'user-profile' user.id %}">@{{ user.username }}</a>
                 </div>
                 {% endfor %}
             </div>
